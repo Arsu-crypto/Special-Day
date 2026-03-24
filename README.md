@@ -1,1 +1,86 @@
-# Special-Day
+<html>
+<head>
+  <title>Surprise 🎁</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-family: Arial;
+      background: black;
+      color: white;
+      overflow: hidden;
+    }
+
+    #startBtn {
+      margin-top: 20%;
+      padding: 15px 30px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: gold;
+    }
+
+    #content {
+      display: none;
+    }
+
+    h1 {
+      margin-top: 15%;
+      font-size: 50px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+      font-size: 22px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .flower {
+      position: absolute;
+      font-size: 24px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {top: -10%;}
+      100% {top: 110%;}
+    }
+  </style>
+</head>
+<body>
+
+<button id="startBtn" onclick="startSurprise()">🎁 Click for Surprise</button>
+
+<div id="content">
+  <h1>🎉 Happy Birthday Samra 🎉</h1>
+  <p>Wishing you success, happiness & many more achievements in your life!</p>
+</div>
+
+<script>
+function startSurprise(){
+  document.body.style.background = "linear-gradient(to right, #ff9a9e, #fad0c4)";
+  document.getElementById("startBtn").style.display = "none";
+  document.getElementById("content").style.display = "block";
+
+  const flowers = ["🌸","🤍"]; // pink + white flowers
+
+  for(let i=0; i<50; i++){ // thoda zyada flowers
+    let flower = document.createElement("div");
+    flower.innerHTML = flowers[Math.floor(Math.random()*flowers.length)];
+    flower.className = "flower";
+    flower.style.left = Math.random()*100 + "vw";
+    flower.style.fontSize = (20 + Math.random()*20) + "px"; // size thoda random
+    flower.style.animationDuration = (Math.random()*3+3)+"s";
+    document.body.appendChild(flower);
+  }
+}
+</script>
+
+</body>
+</html>
